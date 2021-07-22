@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.li-hover{
+    color:white;
+    background-color: #212529;
+}
+
+.li-hover:hover {
+    color:black;
+    background-color: #F9CA24;
+    font-weight: 500;
+}

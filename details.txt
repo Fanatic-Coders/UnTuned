@@ -1,0 +1,20 @@
+
+*Pagess:
+    1. Home Pages : index.html
+    2. Login Page : login.html
+    3. Register Page : register.html
+    4. About : about.html
+    5. Contact Us : contact.html
+    6. Cart : cart.html
+
+ * Integrated Payement Gateway.
+
+ * Category: 
+    1. Earphones
+    2. Headphones
+    3. Neck Bands
+    4. Speakers
+
+* Colors :
+    1. Yellow : #F9C11D
+    1. Yellow2 : #F9CA24
