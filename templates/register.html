@@ -3,12 +3,13 @@
 {% block body %}
 <div class="bg-warning">
     <div class="container">
-        <div class="col-md-6">
-            <img src="{{ url_for('static' , filename='images/reg-logo.png')}}" alt="Registration Logo"
-                style=" height:auto ; width:auto ; padding:0 ; margin: 0;">
-        </div>
-        <div class="row py-5">
-            <div class="col-md-6 offset-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ url_for('static' , filename='images/reg-logo.png')}}" alt="Registration Logo"
+                    style=" height:auto ; width:auto ; padding-top:8rem ; margin: 0rem;">
+            </div>
+            <div class="col-md-6 my-5">
+                <!-- <div class="col-md-6 offset-md-6"> (ANKIT)-->
                 <div class="card bg-dark text-white">
                     <div class="card-body px-5">
 
@@ -54,8 +55,8 @@
                             </div>
 
                             <div class="container text-center py-2">
-                                <button type="submit" class="btn btn-success mx-2">Register</button>
-                                <button type="reset" class="btn btn-warning mx-2">Reset</button>
+                                <button type="submit" class="btn btn-success mx-2 fs-5">Register</button>
+                                <button type="reset" class="btn btn-warning mx-2 fs-5">Reset</button>
                             </div>
                         </form>
                     </div>
@@ -63,4 +64,5 @@
             </div>
         </div>
     </div>
-    {% endblock body %}
+</div>
+{% endblock body %}
