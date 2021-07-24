@@ -18,3 +18,46 @@
 * Colors :
     1. Yellow : #F9C11D
     1. Yellow2 : #F9CA24
+
+    <div class="card bg-dark text-white">
+                    <div class="card-body px-5">
+                        <h3 class="text-center my-3">Register Yourself Here 🙌</h3>
+                        <form action="RegisterServlet" method="POST">
+                            <div class="form-group my-2">
+                                <label for="name">Full Name</label>
+                                <input name="name" type="text" class="form-control" id="name"
+                                    aria-describedby="emailHelp" placeholder="Enter your full name..." required />
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="email">Email Id</label>
+                                <input name="email" type="email" class="form-control" id="email"
+                                    aria-describedby="emailHelp" placeholder="Enter your email..." required />
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="password">Password</label>
+                                <input name="password" type="password" class="form-control" id="password"
+                                    aria-describedby="emailHelp" placeholder="Choose a strong password..." required />
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="cpassword">Confirm Password</label>
+                                <input name="cpassword" type="password" class="form-control" id="cpassword"
+                                    aria-describedby="emailHelp" placeholder="Re-enter password..." required />
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="phone">Contact Number</label>
+                                <input name="phone" type="number" class="form-control" id="phone"
+                                    aria-describedby="emailHelp" placeholder="Enter your contact number..."
+                                    required="/">
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="phone">Address</label>
+                                <textarea name="address" style="height: 100px;" class="form-control"
+                                    placeholder="Enter your address..." required></textarea>
+                            </div>
+                            <div class="container text-center py-2">
+                                <button type="submit" class="btn btn-success mx-2 fs-5">Register</button>
+                                <button type="reset" class="btn btn-warning mx-2 fs-5">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>

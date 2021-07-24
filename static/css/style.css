@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+body{
+  background-color:#F9C11D;
+}
+
+/* Home Page */
+
 .li-hover{
     color:white;
     background-color: #212529;

@@ -15,7 +15,7 @@ def about():
 
 @app.route('/login')
 def login():
-    return render_template('register.html')
+    return render_template('login.html')
 
 
 @app.route('/register')
@@ -25,7 +25,7 @@ def register():
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('register.html')
 
 
 @app.route('/cart')

@@ -1,1 +1,65 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+
+{% block title %} Login - UnTuned {% endblock title %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 my-auto">
+        <img
+          src="{{ url_for('static' , filename='images/reg-logo.png')}}"
+          alt="Registration Logo"
+          style="height: 250px; width: 250px; margin-left: 10vw;"
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="card bg-dark text-white mt-5">
+            <div class="card-header">
+                <h3 class="text-center my-3">Login Here 🤝</h3>
+            </div>
+          <div class="card-body px-5">
+            
+            <form action="#" method="POST">
+              <div class="form-group my-2">
+                <label for="email">Email address</label>
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="container text-center mt-4 mb-2">
+                <button type="submit" class="btn btn-success px-4 mx-2 fs-5">
+                  Login
+                </button>
+                <button type="reset" class="btn btn-danger px-4 mx-2 fs-5">Reset</button>
+              </div>
+              </div>
+            </form>
+            <div class="container text-center mb-4">
+                <h6>New User? Join our Awesome Family! 🙌</h6>
+                  <a href="/register"><button type="submit" class="btn btn-primary mt-3 btn-lg btn-block">Register Now</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock body %}
