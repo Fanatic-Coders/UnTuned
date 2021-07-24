@@ -3,13 +3,19 @@
   padding: 0;
 }
 
-.li-hover{
-    color:white;
-    background-color: #212529;
+body {
+  background-color: #f9c11d;
+}
+
+/* Home Page */
+
+.li-hover {
+  color: white;
+  background-color: #212529;
 }
 
 .li-hover:hover {
-    color:black;
-    background-color: #F9CA24;
-    font-weight: 500;
+  color: black;
+  background-color: #f9ca24;
+  font-weight: 500;
 }
