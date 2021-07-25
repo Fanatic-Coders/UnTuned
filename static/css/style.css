@@ -3,9 +3,6 @@
   padding: 0;
 }
 
-body {
-  background-color: #f9c11d;
-}
 
 /* Home Page */
 
@@ -19,3 +16,53 @@ body {
   background-color: #f9ca24;
   font-weight: 500;
 }
+
+/* Login and Registration Background */
+
+.page-bg {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #f9c11d;
+} 
+
+/* Contact Page */
+
+.page-bg-contact {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #212529;
+} 
+.contact{
+  padding: 4%;
+  height: 400px;
+}
+.col-md-4{
+  background: #ff9b00;
+  padding: 4%;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+  margin-top:10%;
+  color: black;
+}
+.contact-info img{
+  margin-bottom: 15%;
+  margin-left: 38%;
+}
+.contact-info h2{
+  margin-bottom: 10%;
+  margin-left: 22.5%;
+}
+.col-md-8{
+  background: #fff;
+  padding: 3%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  color: black;
+}
+

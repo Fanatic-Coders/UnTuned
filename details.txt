@@ -16,5 +16,6 @@
     4. Speakers
 
 * Colors :
-    1. Yellow : #F9C11D
-    1. Yellow2 : #F9CA24
+    1. Yellow-bg : #F9C11D
+    2. Yellow2-button : #F9CA24
+    3. Black : #212529
