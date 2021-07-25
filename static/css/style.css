@@ -24,7 +24,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: #f9c11d;
+  background: #F9CA24;
 } 
 
 /* Contact Page */
@@ -64,5 +64,108 @@
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   color: black;
+}
+
+/* About Page */
+
+.page-bg-about {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* background: #ffc0cb; */
+}
+
+.aboutus-section {
+  padding: 90px 0;
+}
+.aboutus-title {
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 32px;
+  margin: 0 0 39px;
+  padding: 0 0 11px;
+  position: relative;
+  text-transform: uppercase;
+  color: black;
+}
+.aboutus-title::after {
+  background: #F9CA24 none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 54px;
+}
+.aboutus-text {
+  color: #222;
+  font-size: 15px;
+  line-height: 22px;
+  margin: 0 0 35px;
+}
+
+a:hover, a:active {
+  color: #F9CA24;
+  text-decoration: none;
+  outline: 0;
+  border: 1px solid black;
+}
+.aboutus-more {
+  border: 1px solid #F9CA24;
+  border-radius: 25px;
+  color: black;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 7px 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.feature .feature-box .iconset {
+  background: #fff none repeat scroll 0 0;
+  float: left;
+  position: relative;
+  width: 18%;
+}
+
+.feature .feature-box .feature-content h4 {
+  color: #020101;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin: 0 0 5px;
+}
+
+
+.feature .feature-box .feature-content {
+  float: left;
+  width: 78%;
+}
+.feature .feature-box .feature-content h4 {
+  color: black;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin: 0 0 5px;
+}
+.feature .feature-box .feature-content p {
+  color: #222;
+  font-size: 15px;
+  line-height: 22px;
+}
+.icon {
+  color : #f4b841;
+  padding:0px;
+  font-size:40px;
+  border: 1px solid #F9CA24;
+  border-radius: 100px;
+  color: #F9CA24;
+  font-size: 28px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  width: 70px;
 }
 
