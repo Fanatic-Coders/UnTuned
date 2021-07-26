@@ -17,6 +17,12 @@
   font-weight: 500;
 }
 
+.btn-color{
+  color: #212529;
+  background-color: #f9ca24;
+  font-weight: bold;
+}
+
 /* Login and Registration Background */
 
 .page-bg {
@@ -73,7 +79,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  /* background: #ffc0cb; */
 }
 
 .aboutus-section {
@@ -88,6 +93,7 @@
   position: relative;
   text-transform: uppercase;
   color: black;
+  text-align: center;
 }
 .aboutus-title::after {
   background: #F9CA24 none repeat scroll 0 0;
@@ -96,13 +102,14 @@
   height: 2px;
   left: 0;
   position: absolute;
-  width: 54px;
+  width: 100%;
 }
 .aboutus-text {
   color: #222;
   font-size: 15px;
   line-height: 22px;
   margin: 0 0 35px;
+  text-align: justify;
 }
 
 a:hover, a:active {
@@ -122,6 +129,12 @@ a:hover, a:active {
   padding: 7px 20px;
   text-transform: uppercase;
   text-decoration: none;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.feature{
+  margin-top: 2rem;
 }
 .feature .feature-box .iconset {
   background: #fff none repeat scroll 0 0;
@@ -142,6 +155,8 @@ a:hover, a:active {
 .feature .feature-box .feature-content {
   float: left;
   width: 78%;
+  margin-bottom: 2rem;
+  text-align: justify;  
 }
 .feature .feature-box .feature-content h4 {
   color: black;
@@ -168,4 +183,6 @@ a:hover, a:active {
   text-align: center;
   width: 70px;
 }
+
+
 
