@@ -23,6 +23,14 @@
   font-weight: bold;
 }
 
+.search-icon{
+  color: #F9CA24;
+}
+
+.search-icon:hover{
+  color: aquamarine;
+}
+
 /* Login and Registration Background */
 
 .page-bg {

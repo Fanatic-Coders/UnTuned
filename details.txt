@@ -19,3 +19,8 @@
     1. Yellow-bg : #F9C11D
     2. Yellow2-button : #F9CA24
     3. Black : #212529
+
+* To-Dos
+    1. Login / Logout based on user sessions (dropdown menu: username, Logout).
+    2. redirect to login page from checkout if user-login is false.
+    3. 

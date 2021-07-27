@@ -1,7 +1,20 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///users.db"
+db = SQLAlchemy(app)
+
+class Users(db.Model):
+    name = db.Column(db.String(40), nullable=False)
+    email = db.Column(db.String(50), primary_key = True)
+    password = db.Column(db.String(20), nullable=False)
+    phone = db.Column(db.INTEGER(10), nullable=False)
+    address = db.Column(db.String(150), nullable=False)
+
+    def __repr__(self):
+        return self.email
 
 @app.route('/')
 def home():
