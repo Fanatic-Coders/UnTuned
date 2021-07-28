@@ -46,7 +46,7 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    loginFailed = False
+    loginFailed = 0
     if request.method=='POST':
         email = request.form['email']
         password = request.form['password']
@@ -57,7 +57,8 @@ def login():
             session['user_email'] = user.email
             return redirect(url_for('home'))
         else:
-            return render_template('login.html')
+            loginFailed = 1
+            return render_template('login.html' , loginFailed=loginFailed)
 
     return render_template('login.html')
 

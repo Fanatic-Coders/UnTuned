@@ -37,8 +37,13 @@
                 <button type="reset" class="btn btn-danger px-4 mx-2 fs-5">Reset</button>
               </div>
           </div>
+          <div class="container text-center mb-3">
+            {% if loginFailed == 1%}
+              Invalid Login Credentials.
+            {% endif %}
+          </div>
           </form>
-          <div class="container text-center mb-4">
+          <div class="container text-center mb-3">
             <h6>New User? Join our Awesome Family! 🙌</h6>
             <a href="/register"><button type="submit" class="btn btn-primary mt-3 btn-lg btn-block">Register
                 Now</button></a>
