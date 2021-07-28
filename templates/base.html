@@ -111,7 +111,32 @@
               <a class="nav-link" href="/contact">Contact Us</a>
             </li>
             <li class="nav-item active mx-2">
-              <a class="nav-link" href="/login">Login/Register</a>
+              {% if not g.user %}
+                <a class="nav-link" href="/login">LogIn/Register</a>
+              {% else %}
+              <li class="nav-item dropdown mx-2">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                Hi, {{g.user.name}}
+                </a>
+                <ul
+                  class="dropdown-menu active bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item li-hover" href="/logout"
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              {% endif %}
             </li>
             <li class="nav-item active mx-2">
               <a class="nav-link fa-cart" href="/cart"
