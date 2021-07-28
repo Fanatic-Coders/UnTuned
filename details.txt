@@ -21,6 +21,6 @@
     3. Black : #212529
 
 * To-Dos
-    1. Login / Logout based on user sessions (dropdown menu: username, Logout).
-    2. redirect to login page from checkout if user-login is false.
+    1. Login / Logout based on user sessions (dropdown menu: username, Logout). --> DONE
+    2. Redirect to login page from checkout if user-login is false. --> DONE
     3. 

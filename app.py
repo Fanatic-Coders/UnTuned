@@ -24,7 +24,7 @@ class Users(db.Model):
     address = db.Column(db.String(150), nullable=False)
 
     def __repr__(self):
-        return email
+        return self.email
 
 
 @app.before_request
@@ -46,6 +46,7 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    loginFailed = False
     if request.method=='POST':
         email = request.form['email']
         password = request.form['password']
@@ -55,6 +56,9 @@ def login():
         if user and user.password == password:
             session['user_email'] = user.email
             return redirect(url_for('home'))
+        else:
+            return render_template('login.html')
+
     return render_template('login.html')
 
 
