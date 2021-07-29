@@ -17,7 +17,11 @@
             <h3 class="text-center my-3">Login Here 🤝</h3>
           </div>
           <div class="card-body px-5">
-
+            {% if loginFailed == 1%}
+            <div class="alert alert-danger text-center">
+              Invalid Login Credentials.
+            </div>
+            {% endif %}
             <form action="/login" method="POST">
               <div class="form-group my-3">
                 <label for="email">Email address</label>
@@ -36,11 +40,6 @@
                 </button>
                 <button type="reset" class="btn btn-danger px-4 mx-2 fs-5">Reset</button>
               </div>
-          </div>
-          <div class="container text-center mb-3">
-            {% if loginFailed == 1%}
-              Invalid Login Credentials.
-            {% endif %}
           </div>
           </form>
           <div class="container text-center mb-3">

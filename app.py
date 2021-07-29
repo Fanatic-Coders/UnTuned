@@ -86,7 +86,8 @@ def contact():
 
 @app.route('/cart')
 def cart():
-    return render_template('cart.html')
+    a = 5
+    return render_template('cart.html' , a=a)
 
 @app.route('/logout')
 def logout():
