@@ -4,7 +4,57 @@
 
 {% block body %}
 
-<body class="page-bg">
+<body class="page-bg-contact">
+  <div class="container contact">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="contact-info">
+          <img src="{{ url_for('static' , filename='images/login-logo.png')}}" alt="Login Logo"
+          style="height: 250px; width: 250px; margin-left: 2rem;" />
+        </div>
+      </div>
+      <div class="col-md-8 bg-dark text-white">
+        <div class="card-header">
+          <h3 class="text-center my-3">Login Here 🤝</h3>
+        </div>
+        <div class="contact-form">
+          {% if loginFailed == 1%}
+            <div class="alert alert-danger text-center">
+              Invalid Login Credentials.
+            </div>
+            {% endif %}
+            <form action="/login" method="POST">
+              <div class="form-group my-3">
+                <label for="email">Email address</label>
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                  placeholder="Enter email" />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password" />
+              </div>
+              <div class="container text-center mt-4 mb-2">
+                <button type="submit" class="btn btn-success px-4 mx-2 fs-5">
+                  Login
+                </button>
+                <button type="reset" class="btn btn-danger px-4 mx-2 fs-5">Reset</button>
+              </div>
+          </div>
+          </form>
+          <div class="container text-center mb-3">
+            <h6>New User? Join our Awesome Family! 🙌</h6>
+            <a href="/register"><button type="submit" class="btn btn-primary mt-3 btn-lg btn-block">Register
+                Now</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- <body class="page-bg">
   <div class="container">
     <div class="row">
       <div class="col-md-6 my-auto">
@@ -52,6 +102,6 @@
     </div>
   </div>
   </div>
-</body>
+</body> -->
 
 {% endblock body %}

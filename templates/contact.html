@@ -1,5 +1,10 @@
 {% extends 'base.html' %} {% block title %} Contact Us - UnTuned {% endblock
 title %} {% block body %}
+{% if messageSent == 1%}
+<div class="alert alert-success text-center">
+     Message has been sent successfully!✌
+</div>
+{% endif %}
 <body class="page-bg-contact">
   <div class="container contact">
     <div class="row">
@@ -15,7 +20,7 @@ title %} {% block body %}
       </div>
       <div class="col-md-8 bg-dark text-white">
         <div class="contact-form">
-          <form action="#" method="POST">
+          <form action="/contact" method="POST">
             <div class="form-group my-2">
               <label for="name">Name</label>
               <input

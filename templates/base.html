@@ -138,11 +138,14 @@
               </li>
               {% endif %}
             </li>
-            <li class="nav-item active mx-2">
+            <li class="nav-item active ml-2">
               <a class="nav-link fa-cart" href="/cart"
-                ><i class="fas fa-shopping-cart"></i> Cart</a
+                >Cart &nbsp;<i class="fas fa-shopping-cart"></i></a
               >
             </li>
+            {% if g.user and g.total_items %}
+              <p class="text-warning"> {{ g.total_items }} </p>
+            {% endif %}
           </ul>
         </div>
       </div>

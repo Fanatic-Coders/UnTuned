@@ -11,28 +11,52 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///users.db"
+# Configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///UnTuned_Database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'mai_nahi_bataunga'
 db = SQLAlchemy(app)
 
+# Tables
 class Users(db.Model):
     name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(50), primary_key = True)
     password = db.Column(db.String(20), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(150), nullable=False)
+    # cartItems = db.relation('Products', backref())
 
     def __repr__(self):
         return self.email
 
+class Products(db.Model):
+    pid = db.Column(db.Integer, primary_key = True)
+    pname = db.Column(db.String(100), unique=True, nullable=False)
+    pdesc = db.Column(db.Text, nullable=False)
+    pprice = db.Column(db.Integer, nullable=False)
 
+    def __repr__(self):
+        return f" {self.pid}, {self.pname} "
+
+class Contact(db.Model):
+    cid = db.Column(db.Integer, primary_key=True)
+    cname = db.Column(db.String(40), nullable=False)
+    cemail = db.Column(db.String(50), nullable=False)
+    cphone = db.Column(db.Integer, nullable=False)
+    cmessage = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return f" {self.pid}, {self.pname} "
+
+
+# Routes
 @app.before_request
 def before_request():
     g.user = None
     if 'user_email' in session:
         user = Users.query.filter_by(email=session['user_email']).first()
         g.user = user
+        g.total_items = 2
 
 @app.route('/')
 def home():
@@ -79,9 +103,20 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/contact')
+@app.route('/contact', methods=['POST', 'GET'])
 def contact():
-    return render_template('contact.html')
+    messageSent = 0
+    if request.method=='POST':
+        cname = request.form['name']
+        cemail = request.form['email']
+        cphone = request.form['phone']
+        cmessage = request.form['message']
+        contact = Contact(cname=cname, cemail=cemail, cphone=cphone, cmessage=cmessage)
+        db.session.add(contact)
+        db.session.commit()
+        messageSent = 1
+
+    return render_template('contact.html', messageSent=messageSent)
 
 
 @app.route('/cart')
