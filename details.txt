@@ -23,4 +23,121 @@
 * To-Dos
     1. Login / Logout based on user sessions (dropdown menu: username, Logout). --> DONE
     2. Redirect to login page from checkout if user-login is false. --> DONE
-    3. 
+
+*OLd-Code (REGISTER):
+---------------------
+<body class="page-bg">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 my-auto">
+            <img src="{{ url_for('static' , filename='images/reg-logo.png')}}" alt="Registration Logo"
+                style="height: 250px; width: 250px; margin-left: 10vw" />
+        </div>
+        <div class="col-md-6 my-auto">
+            <div class="card bg-dark text-white my-5">
+                <div class="card-header">
+                    <h3 class="text-center my-3">Register Yourself Here 🙌</h3>
+                </div>
+                <div class="card-body px-5">
+                    <form action="/register" method="POST">
+                        <div class="form-group my-2">
+                            <label for="name">Full Name</label>
+                            <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                                placeholder="Enter your full name..." required />
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="email">Email Id</label>
+                            <input name="email" type="email" class="form-control" id="email"
+                                aria-describedby="emailHelp" placeholder="Enter your email..." required />
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="password">Password</label>
+                            <input name="password" type="password" class="form-control" id="password"
+                                aria-describedby="emailHelp" placeholder="Choose a strong password..." onkeyup="check();" required />
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="cpassword">Confirm Password</label>
+                            <input name="cpassword" type="password" class="form-control" id="cpassword"
+                                aria-describedby="emailHelp" placeholder="Re-enter password..." onkeyup="check();" required />
+                            <span id='message'></span>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="phone">Contact Number</label>
+                            <input name="phone" type="number" class="form-control" id="phone"
+                                aria-describedby="emailHelp" placeholder="Enter your contact number..." required="/" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="address">Address</label>
+                            <textarea name="address" rows="2" class="form-control"
+                                placeholder="Enter your address..." required></textarea>
+                        </div>
+                        <div class="container text-center py-2">
+                            <button type="submit" class="btn btn-success mx-3 fs-5">
+                                Register
+                            </button>
+                            <button type="reset" class="btn btn-warning mx-3 fs-5">
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                    <div class="container text-center my-3">
+                        <h6>Already a member? Log In here!</h6>
+                          <a href="/login"><button type="submit" class="btn btn-primary mt-2 btn-lg btn-block">Log In</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body> 
+
+*OLd-Code (LOGIN):
+-----------------
+<body class="page-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 my-auto">
+        <img src="{{ url_for('static' , filename='images/login-logo.png')}}" alt="Registration Logo"
+          style="height: 250px; width: 250px; margin-left: 10vw;" />
+      </div>
+      <div class="col-md-6 my-auto">
+        <div class="card bg-dark text-white mt-5">
+          <div class="card-header">
+            <h3 class="text-center my-3">Login Here 🤝</h3>
+          </div>
+          <div class="card-body px-5">
+            {% if loginFailed == 1%}
+            <div class="alert alert-danger text-center">
+              Invalid Login Credentials.
+            </div>
+            {% endif %}
+            <form action="/login" method="POST">
+              <div class="form-group my-3">
+                <label for="email">Email address</label>
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                  placeholder="Enter email" />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password" />
+              </div>
+              <div class="container text-center mt-4 mb-2">
+                <button type="submit" class="btn btn-success px-4 mx-2 fs-5">
+                  Login
+                </button>
+                <button type="reset" class="btn btn-danger px-4 mx-2 fs-5">Reset</button>
+              </div>
+          </div>
+          </form>
+          <div class="container text-center mb-3">
+            <h6>New User? Join our Awesome Family! 🙌</h6>
+            <a href="/register"><button type="submit" class="btn btn-primary mt-3 btn-lg btn-block">Register
+                Now</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
