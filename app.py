@@ -18,6 +18,11 @@ app.secret_key = 'mai_nahi_bataunga'
 db = SQLAlchemy(app)
 
 # Tables
+cartLink = db.Table('cartLink',
+    db.Column('email', db.String(50), db.ForeignKey('users.email')),
+    db.Column('pid', db.Integer, db.ForeignKey('products.pid'))
+)
+
 class Users(db.Model):
     name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(50), primary_key = True)
@@ -25,6 +30,8 @@ class Users(db.Model):
     phone = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(150), nullable=False)
     # cartItems = db.relation('Products', backref())
+    # Defining relationship between users and products
+    items = db.relationship('Products', secondary=cartLink, backref=db.backref('link', lazy='dynamic'))
 
     def __repr__(self):
         return self.email
