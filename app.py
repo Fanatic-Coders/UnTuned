@@ -29,7 +29,6 @@ class Users(db.Model):
     password = db.Column(db.String(20), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(150), nullable=False)
-    # cartItems = db.relation('Products', backref())
     # Defining relationship between users and products
     items = db.relationship('Products', secondary=cartLink, backref=db.backref('link', lazy='dynamic'))
 
@@ -147,6 +146,10 @@ def cart():
 def logout():
     session.pop('user_email', None)
     return redirect(url_for('home'))
+
+@app.route('/account/<string:email>')
+def account(email):
+    return render_template('account.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

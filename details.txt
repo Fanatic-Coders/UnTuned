@@ -159,3 +159,7 @@ WHERE email="test1@test1.com"
 
 
 **Add category section in products table
+
+// add an admin/super user -> if user.email == admin@admin.com && user.password == admin -> redirect(admin page)
+
+// Admin Page -> Add Product,  no. of poroducts, no. of users
