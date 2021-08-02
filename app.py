@@ -65,9 +65,22 @@ def before_request():
         g.user = user
         g.total_items = 2
 
+
 @app.route('/')
 def home():
-    return render_template('index.html')
+    products = Products.query.all();
+    return render_template('index.html', products=products)
+
+@app.route('/add_to_cart/<int:pid>', methods=['GET', 'POST'])
+def add_to_cart(pid):
+    if request.method == 'POST':
+        if g.user is None:
+            return redirect(url_for('login'))
+        else:
+            product = Products.query.filter_by(pid=pid).first()
+            g.user.items.append(product)
+            db.session.commit()
+            return redirect(url_for('home'))
 
 
 @app.route('/about')

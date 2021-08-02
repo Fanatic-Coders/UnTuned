@@ -141,3 +141,18 @@
   </div>
   </div>
 </body>
+
+
+Idea for home and Cart
+-------------------------
+
+each product will be inside the form (layout - card) wihtin the for loop 
+data is retrieved from Products as object
+
+Press add to cart i.e. of type submit button in form at home
+
+itemincart++;
+
+SELECT count(cartLink.email) as number_of_items         
+from cartLink
+WHERE email="test1@test1.com"
