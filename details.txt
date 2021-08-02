@@ -156,3 +156,6 @@ itemincart++;
 SELECT count(cartLink.email) as number_of_items         
 from cartLink
 WHERE email="test1@test1.com"
+
+
+**Add category section in products table
