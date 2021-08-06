@@ -8,6 +8,7 @@ from flask import (
     session
 )
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -42,7 +43,8 @@ class Products(db.Model):
     pdesc = db.Column(db.Text, nullable=False)
     pprice = db.Column(db.Integer, nullable=False)
     pcategory = db.Column(db.String(20), nullable=False)
-    pimage = db.Column(db.LargeBinary)
+    pimage = db.Column(db.Text, unique=True, nullable=False)
+    # imgid = db.Column(db.Integer, db.ForeignKey('images.imgid'))
 
     def __repr__(self):
         return f" {self.pid}, {self.pname} "
@@ -57,6 +59,14 @@ class Contact(db.Model):
     def __repr__(self):
         return f" {self.pid}, {self.pname} "
 
+# class Images(db.Model):
+#     imgid = db.Column(db.Integer, primary_key=True)
+#     img = db.Column(db.Text, unique=True, nullable=False)
+#     imgname = db.Column(db.Text, nullable=False)
+#     mimetype = db.Column(db.Text, nullable=False)
+
+#     def __repr__(self):
+#         return f" {self.imgid}, {self.imgname}"
 
 # Routes
 @app.before_request
@@ -156,6 +166,33 @@ def account(email):
 
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
+    if request.method == 'POST':
+        pname = request.form['pname']
+        pcategory = request.form['pcategory']
+        pprice = request.form['pprice']
+        pdesc = request.form['pdesc']
+        pimage = request.files['pimage']
+
+        product = Products(pname=pname, pcategory=pcategory, pprice=pprice, pdesc=pdesc, pimage=pimage.read())
+
+        secure_filename(pimage.filename)
+
+        db.session.add(product)
+        db.session.commit()
+
+        # imgname = secure_filename(pimage.filename)
+        # mimetype = pimage.mimetype
+
+        # img = Images( img=pimage.read(), imgname=imgname, mimetype=mimetype)
+
+        # db.session.add(img)
+        # db.session.commit()
+
+        # product = Products(pname=pname, pcategory=pcategory, pprice=pprice, pdesc=pdesc, imgid=img.imgid)
+
+        # db.session.add(product)
+        # db.session.commit()
+
     return render_template('upload.html')
 
 if __name__ == '__main__':
