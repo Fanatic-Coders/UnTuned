@@ -29,6 +29,7 @@ class Users(db.Model):
     password = db.Column(db.String(20), nullable=False)
     phone = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(150), nullable=False)
+    
     # Defining relationship between users and products
     items = db.relationship('Products', secondary=cartLink, backref=db.backref('link', lazy='dynamic'))
 
@@ -40,6 +41,8 @@ class Products(db.Model):
     pname = db.Column(db.String(100), unique=True, nullable=False)
     pdesc = db.Column(db.Text, nullable=False)
     pprice = db.Column(db.Integer, nullable=False)
+    pcategory = db.Column(db.String(20), nullable=False)
+    pimage = db.Column(db.LargeBinary)
 
     def __repr__(self):
         return f" {self.pid}, {self.pname} "
@@ -150,6 +153,10 @@ def logout():
 @app.route('/account/<string:email>')
 def account(email):
     return render_template('account.html')
+
+@app.route('/upload', methods=['POST', 'GET'])
+def upload():
+    return render_template('upload.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

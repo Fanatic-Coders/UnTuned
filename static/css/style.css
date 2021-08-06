@@ -60,6 +60,7 @@
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
+
 .contact-info{
   margin-top:10%;
   color: black;
@@ -72,6 +73,7 @@
   margin-bottom: 10%;
   margin-left: 22.5%;
 }
+
 .col-md-8{
   background: #fff;
   padding: 3%;
@@ -190,6 +192,23 @@ a:hover, a:active {
   line-height: 70px;
   text-align: center;
   width: 70px;
+}
+
+/* upload page */
+
+.col-md-5{
+  background: #F9CA24;
+  padding: 4%;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.col-md-7{
+  background: #fff;
+  padding: 3%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  color: black;
 }
 
 
