@@ -3,6 +3,7 @@ from flask import (
     g, 
     redirect, 
     render_template, 
+    Response,
     request, 
     url_for, 
     session
@@ -37,14 +38,15 @@ class Users(db.Model):
     def __repr__(self):
         return self.email
 
+
 class Products(db.Model):
     pid = db.Column(db.Integer, primary_key = True)
     pname = db.Column(db.String(100), unique=True, nullable=False)
     pdesc = db.Column(db.Text, nullable=False)
     pprice = db.Column(db.Integer, nullable=False)
     pcategory = db.Column(db.String(20), nullable=False)
-    pimage = db.Column(db.Text, unique=True, nullable=False)
-    # imgid = db.Column(db.Integer, db.ForeignKey('images.imgid'))
+    # pimage = db.Column(db.Text, unique=True, nullable=False)
+    imgid = db.Column(db.Integer, db.ForeignKey('images.imgid'))
 
     def __repr__(self):
         return f" {self.pid}, {self.pname} "
@@ -59,14 +61,13 @@ class Contact(db.Model):
     def __repr__(self):
         return f" {self.pid}, {self.pname} "
 
-# class Images(db.Model):
-#     imgid = db.Column(db.Integer, primary_key=True)
-#     img = db.Column(db.Text, unique=True, nullable=False)
-#     imgname = db.Column(db.Text, nullable=False)
-#     mimetype = db.Column(db.Text, nullable=False)
-
-#     def __repr__(self):
-#         return f" {self.imgid}, {self.imgname}"
+class Images(db.Model):
+    imgid = db.Column(db.Integer, primary_key=True)
+    img = db.Column(db.Text, unique=True, nullable=False)
+    imgname = db.Column(db.Text, nullable=False)
+    mimetype = db.Column(db.Text, nullable=False)
+    def __repr__(self):
+        return f" {self.imgid}, {self.imgname}"
 
 # Routes
 @app.before_request
@@ -75,13 +76,24 @@ def before_request():
     if 'user_email' in session:
         user = Users.query.filter_by(email=session['user_email']).first()
         g.user = user
-        g.total_items = 2
+        all_items = g.user.items
+        g.total_items = len(all_items)
 
 
 @app.route('/')
 def home():
     products = Products.query.all();
     return render_template('index.html', products=products)
+
+# def writeimage(image):
+#     with open(image) as file:
+#         file.write(image)
+#     return image
+
+@app.route('/getImg/<int:imgid>')
+def getImage(imgid):
+    pimg = Images.query.filter_by(imgid=imgid).first()
+    return Response(pimg.img, mimetype=pimg.mimetype)
 
 @app.route('/add_to_cart/<int:pid>', methods=['GET', 'POST'])
 def add_to_cart(pid):
@@ -173,25 +185,25 @@ def upload():
         pdesc = request.form['pdesc']
         pimage = request.files['pimage']
 
-        product = Products(pname=pname, pcategory=pcategory, pprice=pprice, pdesc=pdesc, pimage=pimage.read())
+        # product = Products(pname=pname, pcategory=pcategory, pprice=pprice, pdesc=pdesc, pimage=pimage.read())
 
-        secure_filename(pimage.filename)
-
-        db.session.add(product)
-        db.session.commit()
-
-        # imgname = secure_filename(pimage.filename)
-        # mimetype = pimage.mimetype
-
-        # img = Images( img=pimage.read(), imgname=imgname, mimetype=mimetype)
-
-        # db.session.add(img)
-        # db.session.commit()
-
-        # product = Products(pname=pname, pcategory=pcategory, pprice=pprice, pdesc=pdesc, imgid=img.imgid)
+        # secure_filename(pimage.filename)
 
         # db.session.add(product)
         # db.session.commit()
+
+        imgname = secure_filename(pimage.filename)
+        mimetype = pimage.mimetype
+
+        img = Images( img=pimage.read(), imgname=imgname, mimetype=mimetype)
+
+        db.session.add(img)
+        db.session.commit()
+
+        product = Products(pname=pname, pcategory=pcategory, pprice=pprice, pdesc=pdesc, imgid=img.imgid)
+
+        db.session.add(product)
+        db.session.commit()
 
     return render_template('upload.html')
 

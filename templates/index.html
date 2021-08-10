@@ -1,14 +1,17 @@
-{% extends 'base.html' %} {% block title %} UnTuned Home {% endblock title %} {%
-block body %}
-<div>
+{% extends 'base.html' %} 
+{% block title %} UnTuned Home {% endblock title %} 
+{%block body %}
+<div class="container text-center mt-2 my-5">
   <h1>This is home page</h1>
 </div>
 <div class="container">
-  {% for product in products %}
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-4">
   <form action="/add_to_cart/{{ product.pid }}" method="POST">
-    <div class="card" style="width: 18rem;">
+    <div class="card " style="width: 18rem;">
       <img
-        src="{{ with open('products.pimage', 'wb') as f: f.write(rec_data) }}"
+        src=" {{ url_for( 'getImage', imgid=product.imgid ) }}"
         class="card-img-top"
         alt="product-image"
       />
@@ -20,6 +23,10 @@ block body %}
       </div>
     </div>
   </form>
+</div>
   {% endfor %}
 </div>
+</div>
 {% endblock body %}
+
+<!-- https://picsum.photos/200 -->

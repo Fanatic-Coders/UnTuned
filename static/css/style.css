@@ -54,7 +54,8 @@
   padding: 4%;
   height: 400px;
 }
-.col-md-4{
+
+.contact .col-md-4{
   background: #F9CA24;
   padding: 4%;
   border-top-left-radius: 0.5rem;
@@ -196,14 +197,14 @@ a:hover, a:active {
 
 /* upload page */
 
-.col-md-5{
+.contact .col-md-5{
   background: #F9CA24;
   padding: 4%;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
 
-.col-md-7{
+.contact .col-md-7{
   background: #fff;
   padding: 3%;
   border-top-right-radius: 0.5rem;
