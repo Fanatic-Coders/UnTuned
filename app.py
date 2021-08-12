@@ -76,8 +76,8 @@ def before_request():
     if 'user_email' in session:
         user = Users.query.filter_by(email=session['user_email']).first()
         g.user = user
-        all_items = g.user.items
-        g.total_items = len(all_items)
+        # all_items = g.user.items
+        # g.total_items = len(all_items)
 
 
 @app.route('/')

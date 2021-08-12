@@ -148,8 +148,8 @@
                 >Cart &nbsp;<i class="fas fa-shopping-cart"></i></a
               >
             </li>
-            {% if g.user and g.total_items %}
-              <p class="text-warning"> {{ g.total_items }} </p>
+            {% if g.user %}
+              <p class="text-warning"> {{ g.user.items|length }} </p>
             {% endif %}
           </ul>
         </div>
