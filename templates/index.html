@@ -7,7 +7,7 @@
   <div class="row">
     {% for product in products %}
     <div class="col-md-3">
-      <form action="{{ url_for('add_to_cart', pid=product.pid      ) }}" method="POST">
+      <form action="{{ url_for('add_to_cart', pid=product.pid) }}" method="POST">
       <div class="card" style="width: 18rem">
         <img
           src=" {{ url_for( 'getImage', imgid=product.imgid ) }}"
@@ -30,6 +30,7 @@
         </div>
       </div>
     </form>
+
       <form action="/add_to_cart/{{ product.pid }}" method="POST">
         <div
           class="modal fade"
@@ -61,7 +62,6 @@
                 <p id="prodPrice">{{ product.pprice }}</p>
               </div>
               <div class="modal-footer">
-                <!-- <button type="button" class="btn" data-bs-dismiss="modal">Close</button> -->
                 <button type="submit" class="btn btn-primary">
                   Add to Cart
                 </button>

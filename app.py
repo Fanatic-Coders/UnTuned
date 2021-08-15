@@ -76,8 +76,6 @@ def before_request():
     if 'user_email' in session:
         user = Users.query.filter_by(email=session['user_email']).first()
         g.user = user
-        # all_items = g.user.items
-        # g.total_items = len(all_items)
 
 
 @app.route('/')
@@ -85,15 +83,12 @@ def home():
     products = Products.query.all();
     return render_template('index.html', products=products)
 
-# def writeimage(image):
-#     with open(image) as file:
-#         file.write(image)
-#     return image
 
 @app.route('/getImg/<int:imgid>')
 def getImage(imgid):
     pimg = Images.query.filter_by(imgid=imgid).first()
     return Response(pimg.img, mimetype=pimg.mimetype)
+    
 
 @app.route('/add_to_cart/<int:pid>', methods=['GET', 'POST'])
 def add_to_cart(pid):

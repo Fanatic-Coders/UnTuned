@@ -149,7 +149,11 @@
               >
             </li>
             {% if g.user %}
-              <p class="text-warning"> {{ g.user.items|length }} </p>
+              <p class="text-warning">
+                {% if g.user.items|length %}
+                  {{ g.user.items|length }}
+                {% endif %}
+              </p>
             {% endif %}
           </ul>
         </div>
