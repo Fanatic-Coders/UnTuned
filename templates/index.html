@@ -6,27 +6,28 @@
 <div class="container">
   <div class="row">
     {% for product in products %}
-    <div class="col-md-3">
+    <div class="col-lg-4 col-sm-5">
       <form action="{{ url_for('add_to_cart', pid=product.pid) }}" method="POST">
-      <div class="card" style="width: 18rem">
+      <div class="card" style="width: 100%; margin: 0 5px 20px 0;">
         <img
           src=" {{ url_for( 'getImage', imgid=product.imgid ) }}"
           class="card-img-top"
           alt="product-image"
+          style="width:100%; height:300px;"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ product.pname }}</h5>
+          <h4 class="card-title">{{ product.pname }}</h4>
           <p class="card-text">{{ product.pdesc|truncate(50) }}</p>
-          <p class="card-text">{{ product.pprice }}</p>
+          <h5 class="card-text">Price: ₹ {{ product.pprice }}</h5>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary mt-2"
             data-bs-toggle="modal"
             data-bs-target="#productModal"
           >
             More Info..
           </button>
-          <button class="btn btn-primary" type="submit">Add to Cart</button>
+          <button class="btn btn-primary mt-2" type="submit">Add to Cart</button>
         </div>
       </div>
     </form>
@@ -42,9 +43,9 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="productModalLabel">
+                <h4 class="modal-title" id="productModalLabel">
                   {{product.pname}}
-                </h5>
+                </h4>
                 <button
                   type="button"
                   class="btn-close"
@@ -59,7 +60,7 @@
                   style="width:100%;"
                 />
                 <p id="prodDesc">{{ product.pdesc }}</p>
-                <p id="prodPrice">{{ product.pprice }}</p>
+                <h5 id="prodPrice">Price:  ₹ {{ product.pprice }}</h5>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">
