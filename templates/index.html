@@ -24,6 +24,7 @@
             class="btn btn-primary mt-2"
             data-bs-toggle="modal"
             data-bs-target="#productModal"
+            onclick="passIdtoModal('{{ product.pid }}', '{{product.pname}}', '{{product.pdesc}}', '{{product.pprice}}', '{{product.imgid}}') "   
           >
             More Info..
           </button>
@@ -31,50 +32,53 @@
         </div>
       </div>
     </form>
-
-      <form action="/add_to_cart/{{ product.pid }}" method="POST">
-        <div
-          class="modal fade"
-          id="productModal"
-          tabindex="-1"
-          aria-labelledby="productModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="productModalLabel">
-                  {{product.pname}}
-                </h4>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <img
-                  src=" {{ url_for( 'getImage', imgid=product.imgid ) }}"
-                  alt="product-image"
-                  style="width:100%;"
-                />
-                <p id="prodDesc">{{ product.pdesc }}</p>
-                <h5 id="prodPrice">Price:  ₹ {{ product.pprice }}</h5>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+  </div>
     {% endfor %}
   </div>
 </div>
+
+<form id="modalform" action="#" method="POST">
+  <div
+    class="modal fade"
+    id="productModal"
+    tabindex="-1"
+    aria-labelledby="productModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="productModalLabel">
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <img
+            id="modalimg"
+            src="#"
+            alt="product-image"
+            style="width:100%;"
+          />
+          <p id="prodDesc"></p>
+          <h5 id="prodPrice"></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 {% endblock body %}
 
+
 <!-- https://picsum.photos/200 -->
+<!-- form action="/add_to_cart/{{ product.pid }}" method="POST"> -->
+<!-- onclick="passIdtoModal('{{ product.pid }}', '{{ product.pname }}', '{{ product.pdesc }}', '{{ product.pprice }}')" -->
