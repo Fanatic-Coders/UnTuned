@@ -16,8 +16,8 @@
           style="width:100%; height:300px;"
         />
         <div class="card-body">
-          <h4 class="card-title">{{ product.pname }}</h4>
-          <p class="card-text">{{ product.pdesc|truncate(50) }}</p>
+          <h4 class="card-title prod-title" id="prod-title">{{ product.pname }}</h4>
+          <p class="card-text prod-desc" id="prod-desc">{{ product.pdesc|truncate(50) }}</p>
           <h5 class="card-text">Price: ₹ {{ product.pprice }}</h5>
           <button
             type="button"
