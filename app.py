@@ -110,6 +110,15 @@ def home():
     products = Products.query.all()
     return render_template("index.html", products=products)
 
+@app.route('/category/<pcategory>')
+def category(pcategory):
+    if pcategory == 'all':
+        products = Products.query.all()
+        return render_template("index.html", products=products)
+    else:
+        products = Products.query.filter_by(pcategory=pcategory).all()
+        return render_template("index.html", products=products)
+
 
 @app.route("/getImg/<int:imgid>")
 def getImage(imgid):
@@ -207,6 +216,7 @@ def contact():
 
 @app.route("/cart")
 def cart():
+    
     return render_template("cart.html")
 
 

@@ -5,35 +5,51 @@
 </div>
 <div class="container">
   <div class="row">
-    {% for product in products %}
-    <div class="col-lg-4 col-sm-5">
-      <form action="{{ url_for('add_to_cart', pid=product.pid) }}" method="POST">
-      <div class="card product-card" style="width: 100%; margin: 0 5px 20px 0;">
-        <img
-          src=" {{ url_for( 'getImage', imgid=product.imgid ) }}"
-          class="card-img-top"
-          alt="product-image"
-          style="width:100%; height:300px;"
-        />
-        <div class="card-body">
-          <h4 class="card-title prod-title" id="prod-title">{{ product.pname }}</h4>
-          <p class="card-text prod-desc" id="prod-desc">{{ product.pdesc|truncate(50) }}</p>
-          <h5 class="card-text">Price: ₹ {{ product.pprice }}</h5>
-          <button
-            type="button"
-            class="btn btn-outline-warning mt-2 text-dark"
-            data-bs-toggle="modal"
-            data-bs-target="#productModal"
-            onclick="passIdtoModal('{{ product.pid }}', '{{product.pname}}', '{{product.pdesc}}', '{{product.pprice}}', '{{product.imgid}}') "   
+    {% if products|length == 0 %}
+      <h3 class="text-center">Sorry! We currently do not have any products in this category.</h3>
+    {% else %} 
+      {% for product in products %}
+      <div class="col-lg-4 col-sm-5">
+        <form
+          action="{{ url_for('add_to_cart', pid=product.pid) }}"
+          method="POST"
+        >
+          <div
+            class="card product-card"
+            style="width: 100%; margin: 0 5px 20px 0"
           >
-            More Info
-          </button>
-          <button class="btn btn-primary mt-2" type="submit">Add to Cart</button>
-        </div>
+            <img
+              src=" {{ url_for( 'getImage', imgid=product.imgid ) }}"
+              class="card-img-top"
+              alt="product-image"
+              style="width: 100%; height: 300px"
+            />
+            <div class="card-body">
+              <h4 class="card-title prod-title" id="prod-title">
+                {{ product.pname }}
+              </h4>
+              <p class="card-text prod-desc" id="prod-desc">
+                {{ product.pdesc|truncate(50) }}
+              </p>
+              <h5 class="card-text">Price: ₹ {{ product.pprice }}</h5>
+              <button
+                type="button"
+                class="btn btn-outline-warning mt-2 text-dark"
+                data-bs-toggle="modal"
+                data-bs-target="#productModal"
+                onclick="passIdtoModal('{{ product.pid }}', '{{product.pname}}', '{{product.pdesc}}', '{{product.pprice}}', '{{product.imgid}}') "
+              >
+                More Info
+              </button>
+              <button class="btn btn-primary mt-2" type="submit">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-    {% endfor %}
+      {% endfor %} 
+    {% endif %}
   </div>
 </div>
 
@@ -48,8 +64,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="productModalLabel">
-          </h4>
+          <h4 class="modal-title" id="productModalLabel"></h4>
           <button
             type="button"
             class="btn-close"
@@ -58,26 +73,18 @@
           ></button>
         </div>
         <div class="modal-body">
-          <img
-            id="modalimg"
-            src="#"
-            alt="product-image"
-            style="width:100%;"
-          />
+          <img id="modalimg" src="#" alt="product-image" style="width: 100%" />
           <p id="prodDesc"></p>
           <h5 id="prodPrice"></h5>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">
-            Add to Cart
-          </button>
+          <button type="submit" class="btn btn-primary">Add to Cart</button>
         </div>
       </div>
     </div>
   </div>
 </form>
 {% endblock body %}
-
 
 <!-- https://picsum.photos/200 -->
 <!-- form action="/add_to_cart/{{ product.pid }}" method="POST"> -->

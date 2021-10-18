@@ -42,10 +42,10 @@ const searchProducts = function(){
         let arr;
         for(let i = 0; i < items.length; i++){
             if(title[i].innerText.includes(inputValue) || desc[i].innerText.includes(inputValue)){
-                items[i].style.display = 'block';
+                items[i].parentElement.parentElement.style.display = 'block';
             }
             else{
-                items[i].style.display = 'none';
+                items[i].parentElement.parentElement.style.display = 'none';
             }
         }
     })

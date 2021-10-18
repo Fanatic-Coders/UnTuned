@@ -84,22 +84,27 @@
                 aria-labelledby="navbarDropdown"
               >
                 <li>
-                  <a class="dropdown-item li-hover" href="#earphones"
+                  <a class="dropdown-item li-hover" href="{{ url_for('category', pcategory='all') }}"
+                    >All Products</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item li-hover" href="{{ url_for('category', pcategory='earphone') }}"
                     >Earphones</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item li-hover" href="#headphones"
+                  <a class="dropdown-item li-hover" href="{{ url_for('category', pcategory='headphone') }}"
                     >Headphones</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item li-hover" href="#neckbandss"
+                  <a class="dropdown-item li-hover" href="{{ url_for('category', pcategory='neckband') }}"
                     >Neckbands</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item li-hover" href="#speakers"
+                  <a class="dropdown-item li-hover" href="{{ url_for('category', pcategory='speaker') }}"
                     >Speakers</a
                   >
                 </li>
