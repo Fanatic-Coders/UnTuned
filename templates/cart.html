@@ -3,10 +3,10 @@
 <body>
   {% if not g.user %}
     <div class="container text-center my-5">
-        <img src="{{url_for('static', filename = 'images/empty-cart-1.png')}}" alt="empty cart" height="250px" width="250px">
+        <img src="{{url_for('static', filename = 'images/empty-cart.svg')}}" alt="empty cart" height="250px" width="250px">
         <h3 class="mt-3">Missing Cart items?</h3>
         <h5 class="mb-3">Login to view items in your cart!</h5>
-        <a href="/login" style="text-decoration:none;"><div class="btn btn-success btn-lg my-2"> Login</div> </a>
+        <a href="/login" style="text-decoration:none;"><div class="btn btn-success btn-lg my-2">Login</div> </a>
     </div>
   {% else %}
     <div class="container ">
