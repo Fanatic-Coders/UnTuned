@@ -215,8 +215,8 @@ def contact():
 
 @app.route("/cart")
 def cart():
-    
-    return render_template("cart.html")
+    products_in_cart = g.user.items
+    return render_template("cart.html", products_in_cart=products_in_cart)
 
 
 @app.route("/logout")
