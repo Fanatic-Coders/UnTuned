@@ -1,6 +1,5 @@
-details.txt
+*.txt
 configuration.py
-credentials.txt
 
 
 ## Ignore Visual Studio temporary files, build results, and
