@@ -113,8 +113,7 @@ def home():
 @app.route('/category/<pcategory>')
 def category(pcategory):
     if pcategory == 'all':
-        products = Products.query.all()
-        return render_template("index.html", products=products)
+        return redirect(url_for('home'))
     else:
         products = Products.query.filter_by(pcategory=pcategory).all()
         return render_template("index.html", products=products)
@@ -216,8 +215,8 @@ def contact():
 
 @app.route("/cart")
 def cart():
-    
-    return render_template("cart.html")
+    products_in_cart = g.user.items
+    return render_template("cart.html", products_in_cart=products_in_cart)
 
 
 @app.route("/logout")

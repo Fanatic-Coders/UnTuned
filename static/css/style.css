@@ -3,9 +3,13 @@
   padding: 0;
 }
 
+:root{
+  --bgcolor: #85CCC9
+}
+
 .body-color
 {
-  background-color: #85CCC9;
+  background-color: var(--bgcolor);
 }
 /* Home Page */
 
@@ -157,7 +161,7 @@ a:hover, a:active {
   margin-top: 2rem;
 }
 .feature .feature-box .iconset {
-  background: #85CCC9 none repeat scroll 0 0;
+  background: var(--bgcolor) none repeat scroll 0 0;
   float: left;
   position: relative;
   width: 12%;
@@ -220,6 +224,8 @@ a:hover, a:active {
   border-bottom-right-radius: 0.5rem;
   color: black;
 }
+
+
 
 
 
