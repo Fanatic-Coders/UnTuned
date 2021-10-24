@@ -11,6 +11,7 @@ from flask import (
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from flask_mail import Mail, Message
+import razorpay
 
 
 app = Flask(__name__)
@@ -215,8 +216,27 @@ def contact():
 
 @app.route("/cart")
 def cart():
+    if request.method == "POST":
+        return redirect(url_for('pay'))
+
     products_in_cart = g.user.items
+
     return render_template("cart.html", products_in_cart=products_in_cart)
+
+
+
+# Payment Integration
+# To be hidden:
+api = "rzp_test_xYIjFZqdWvjjiZ"
+secret_key = "ohU35RgvOvYyYImzGubvIOqv"
+
+@app.route('/pay', methods=["GET", "POST"])
+def pay():
+    order_amount = 500 * 100    # to be fetched from db
+    client = razorpay.Client(auth = (api , secret_key))
+    payment = client.order.create({'amount' : int(order_amount), 'currency' :'INR', 'payment_capture' : '1'})
+
+    return render_template('pay.html', payment = payment)
 
 
 @app.route("/logout")
@@ -267,6 +287,9 @@ def upload():
 
     return render_template("upload.html")
 
+@app.route("/success", methods=["POST", "GET"])
+def success():
+    return render_template("success.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
