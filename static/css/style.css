@@ -3,12 +3,11 @@
   padding: 0;
 }
 
-:root{
-  --bgcolor: #85CCC9
+:root {
+  --bgcolor: #85ccc9;
 }
 
-.body-color
-{
+.body-color {
   background-color: var(--bgcolor);
 }
 /* Home Page */
@@ -24,21 +23,21 @@
   font-weight: 500;
 }
 
-.btn-color{
+.btn-color {
   color: #212529;
   background-color: #f9ca24;
   font-weight: bold;
 }
 
-.search-icon{
-  color: #F9CA24;
+.search-icon {
+  color: #f9ca24;
 }
 
-.search-icon:hover{
+.search-icon:hover {
   color: aquamarine;
 }
 
-.product-card{
+.product-card {
   background-color: rgb(236, 236, 236);
   /*   */
   box-shadow: 8px 4px 4px black;
@@ -51,8 +50,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: #F9CA24;
-} 
+  background: #f9ca24;
+}
 
 /* Contact Page */
 
@@ -62,33 +61,33 @@
   bottom: 0;
   left: 0;
   /* background: #212529; */
-} 
-.contact{
+}
+.contact {
   padding: 4%;
   height: 400px;
 }
 
-.contact .col-md-4{
-  background: #F9CA24;
+.contact .col-md-4 {
+  background: #f9ca24;
   padding: 4%;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
 
-.contact-info{
-  margin-top:10%;
+.contact-info {
+  margin-top: 10%;
   color: black;
 }
-.contact-info img{
+.contact-info img {
   margin-bottom: 15%;
   margin-left: 38%;
 }
-.contact-info h2{
+.contact-info h2 {
   margin-bottom: 10%;
   margin-left: 22.5%;
 }
 
-.col-md-8{
+.col-md-8 {
   background: #fff;
   padding: 3%;
   border-top-right-radius: 0.5rem;
@@ -120,7 +119,7 @@
   text-align: center;
 }
 .aboutus-title::after {
-  background: #F9CA24 none repeat scroll 0 0;
+  background: #f9ca24 none repeat scroll 0 0;
   bottom: 0;
   content: "";
   height: 2px;
@@ -136,8 +135,9 @@
   text-align: justify;
 }
 
-a:hover, a:active {
-  color:orangered;
+a:hover,
+a:active {
+  color: orangered;
   text-decoration: none;
   outline: 0;
   border: 1px solid black;
@@ -157,7 +157,7 @@ a:hover, a:active {
   margin-top: 1rem;
 }
 
-.feature{
+.feature {
   margin-top: 2rem;
 }
 .feature .feature-box .iconset {
@@ -175,12 +175,11 @@ a:hover, a:active {
   margin: 0 0 5px;
 }
 
-
 .feature .feature-box .feature-content {
   float: left;
   width: 78%;
   margin-bottom: 2rem;
-  text-align: justify;  
+  text-align: justify;
 }
 .feature .feature-box .feature-content h4 {
   color: black;
@@ -195,12 +194,12 @@ a:hover, a:active {
   line-height: 22px;
 }
 .icon {
-  color : #f4b841;
-  padding:0px;
-  font-size:40px;
-  border: 1px solid #F9CA24;
+  color: #f4b841;
+  padding: 0px;
+  font-size: 40px;
+  border: 1px solid #f9ca24;
   border-radius: 100px;
-  color: #F9CA24;
+  color: #f9ca24;
   font-size: 28px;
   height: 70px;
   line-height: 70px;
@@ -210,22 +209,18 @@ a:hover, a:active {
 
 /* upload page */
 
-.contact .col-md-5{
-  background: #F9CA24;
+.contact .col-md-5 {
+  background: #f9ca24;
   padding: 4%;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
 
-.contact .col-md-7{
+.contact .col-md-7 {
   background: #fff;
   padding: 3%;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   color: black;
 }
-
-
-
-
 
