@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block title %} Payment - UnTuned {% endblock title %}
+{% block body %}
+<div class="container">
+    <form action="/success" class="mt-3" method="POST">
+        <script
+            src = "https://checkout.razorpay.com/v1/checkout.js"
+            data-key = "rzp_test_xYIjFZqdWvjjiZ"
+            data-amount = "{{payment['amount']}}"
+            data-currency = "INR"
+            data-order_id = "{{payment['order_id']}}"
+            data-buttontext = "Pay Now"
+            data-name = "UnTuned"
+            data-description = "Secure Transaction"
+            
+            data-theme.color = "#D64444"
+        /></script>
+        <input type="hidden" custom = "Hidden Element" name="hidden">            
+    </form>
+</div>
+{% endblock body %}
