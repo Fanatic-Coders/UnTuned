@@ -16,8 +16,11 @@
     <div class="row">
 
       <div class="col-md-8" style="background-color: var(--bgcolor);">
-        {% for product in products_in_cart %}
+        {% if products_in_cart|length == 0 %}
+          <h3>Your cart is empty. Add some items to the cart.</h3>
 
+        {% else %}
+        {% for product in products_in_cart %}
         <div class="card product-card mb-3" style="max-width: 95%;">
           <div class="row no-gutters">
             <div class="col-md-5">
@@ -40,7 +43,6 @@
         {% endfor %}
       </div>
 
-
       <div class="col-md-4">
         <div class="row-fluid">
           <div class="span2" id="trustImage">
@@ -53,8 +55,8 @@
       </div>
     </div>
   </div>
-
   {% endif %}
+{% endif %}
 </body>
 
 {% endblock body %}

@@ -11,6 +11,7 @@ from flask import (
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from flask_mail import Mail, Message
+from passlib.hash import pbkdf2_sha256
 import razorpay
 
 
@@ -152,7 +153,7 @@ def login():
 
         # SELECT * FROM USER WHERE EMAIL=GIVEN_EMAIL : FIRST-FIRST_ENTITY
         user = Users.query.filter_by(email=email).first()
-        if user and user.password == password:
+        if user and pbkdf2_sha256.verify(password, user.password) :
             session["user_email"] = user.email
             return redirect(url_for("home"))
         else:
@@ -170,8 +171,11 @@ def register():
         password = request.form["password"]
         phone = request.form["phone"]
         address = request.form["address"]
+        # securing user password with pbkdf2_sha256 hash method
+        hashed_pass = pbkdf2_sha256.hash(password)
+
         user = Users(
-            name=name, email=email, password=password, phone=phone, address=address
+            name=name, email=email, password=hashed_pass, phone=phone, address=address
         )
         db.session.add(user)
         db.session.commit()
@@ -216,11 +220,13 @@ def contact():
 
 @app.route("/cart")
 def cart():
-    if request.method == "POST":
-        return redirect(url_for('pay'))
-
-    products_in_cart = g.user.items
-
+    products_in_cart = 0
+    if g.user is not None:
+        if request.method == "POST":
+            return redirect(url_for('pay'))
+        
+        products_in_cart = g.user.items
+        
     return render_template("cart.html", products_in_cart=products_in_cart)
 
 
