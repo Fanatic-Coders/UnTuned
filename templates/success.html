@@ -2,6 +2,12 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 </head>
 <style>
   body {
@@ -49,6 +55,7 @@
     </div>
     <h1>Success</h1>
     <p>Hey! Thank You for purchasing our product<small>(s)</small>.🥳🥳</p>
+    <a href="{{ url_for('home') }}"> <button class="btn btn-success btn-lg mt-5 ">Continue Shopping..</button></a>
   </div>
 </body>
 
