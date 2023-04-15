@@ -33,7 +33,7 @@
                   {{ product.pname }}
                 </h4>
                 <p class="card-text prod-desc" id="prod-desc">
-                  {{ product.pdesc }}
+                  {{ product.pdesc | truncate(100) }}
                 </p>
                 <h5 class="card-text">Price: ₹ {{ product.pprice }}</h5>
               </div>

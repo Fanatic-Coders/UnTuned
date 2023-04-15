@@ -14,7 +14,8 @@ const check = function () {
 };
 
 // Method to pass the values of product to the modal
-const passIdtoModal = function (id, name, desc, price, imgid) {
+const passIdtoModal = function (id, name,  desc, price,  imgid) {
+  console.log("In passIdtoModal function")
   document.getElementById("productModalLabel").innerText = name;
   document.getElementById("prodDesc").innerText = desc;
   document.getElementById("prodPrice").innerText = price;

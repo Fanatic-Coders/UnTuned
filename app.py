@@ -14,7 +14,6 @@ from flask_mail import Mail, Message
 from passlib.hash import pbkdf2_sha256
 import razorpay
 
-
 app = Flask(__name__)
 
 # Configuring mail and extracting Password from file
@@ -39,6 +38,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///UnTuned_Database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = "mai_nahi_bataunga"
 db = SQLAlchemy(app)
+# db.init_app(app)
+
 
 # Tables
 cartLink = db.Table(
@@ -97,7 +98,6 @@ class Images(db.Model):
     def __repr__(self):
         return f" {self.imgid}, {self.imgname}"
 
-
 # Routes
 @app.before_request
 def before_request():
@@ -110,6 +110,8 @@ def before_request():
 @app.route("/")
 def home():
     products = Products.query.all()
+    for product in products:
+        product.pdesc = ' '.join(product.pdesc.split())
     return render_template("index.html", products=products)
 
 @app.route('/category/<pcategory>')
@@ -153,6 +155,10 @@ def login():
 
         # SELECT * FROM USER WHERE EMAIL=GIVEN_EMAIL : FIRST-FIRST_ENTITY
         user = Users.query.filter_by(email=email).first()
+        if email == "admin@untuned.com":
+            if user and pbkdf2_sha256.verify(password, user.password):
+                session["user_email"] = user.email
+                return redirect(url_for("upload"))
         if user and pbkdf2_sha256.verify(password, user.password) :
             session["user_email"] = user.email
             return redirect(url_for("home"))

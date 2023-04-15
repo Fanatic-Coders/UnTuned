@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block title %} UnTuned Home {% endblock title %}
 {%block body %}
 <div class="container text-center mt-2 my-5">
-  <h1>This is home page</h1>
+  <h1>Welcome to UnTuned!</h1>
+  <p class="font-weight-bold">Shop for you favourite music products here at one go</p>
+  <hr>
 </div>
 <div class="container">
   <div class="row">
@@ -37,7 +39,7 @@
                 class="btn btn-outline-warning mt-2 text-dark"
                 data-bs-toggle="modal"
                 data-bs-target="#productModal"
-                onclick="passIdtoModal('{{ product.pid }}', '{{product.pname}}', '{{product.pdesc}}', '{{product.pprice}}', '{{product.imgid}}') "
+                onclick="passIdtoModal('{{ product.pid }}', '{{product.pname}}',  '{{product.pdesc}}', '{{product.pprice}}', '{{product.imgid}}') "
               >
                 More Info
               </button>
