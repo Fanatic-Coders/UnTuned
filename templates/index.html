@@ -28,7 +28,7 @@
             />
             <div class="card-body">
               <h4 class="card-title prod-title" id="prod-title">
-                {{ product.pname }}
+                {{ product.pname | truncate (51)}} 
               </h4>
               <p class="card-text prod-desc" id="prod-desc">
                 {{ product.pdesc|truncate(50) }}
